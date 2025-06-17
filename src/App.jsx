@@ -1,12 +1,34 @@
+import { BrowserRouter, useRoutes } from "react-router";
 import "./App.css";
 import NarBar from "./components/NavBar.jsx";
-import SectionBody from "./components/ItemListContainer.jsx";
+import ItemListContainer from "./components/itemCatalogo/ItemListContainer.jsx";
+import ItemDetailContainer from "./components/itemDetalleCatalogo/ItemDetailContainer.jsx";
+
+const AppRoutes = () => {
+  let routes = useRoutes([
+    {
+      path: "/",
+      element: <ItemListContainer />,
+    },
+    {
+      path: "/category/:productCategory",
+      element: <ItemListContainer />,
+    },
+    {
+      path: "/products/:productId",
+      element: <ItemDetailContainer />,
+    },
+  ]);
+  return routes;
+};
 
 function App() {
   return (
     <>
-      <NarBar />
-      <SectionBody text={"hola este es el props que paso a mi componente"} />
+      <BrowserRouter>
+        <NarBar />
+        <AppRoutes />
+      </BrowserRouter>
     </>
   );
 }
