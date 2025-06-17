@@ -6,10 +6,21 @@ function ItemDetailContainer() {
   const [isProduct, setProduct] = useState(null);
   const { productId } = useParams();
 
+  const leerApi = async () => {
+    const URL = `https://fakestoreapi.com/products/${productId}`;
+    const mensajeError = "<span>Falla de la conexion al Servidor..</span>";
+
+    try {
+      const respuesta = await fetch(URL);
+      const datos = await respuesta.json();
+      return setProduct(datos);
+    } catch (err) {
+      return mensajeError;
+    }
+  };
+
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productId}`)
-      .then((response) => response.json())
-      .then((response) => setProduct(response));
+    leerApi();
   }, [productId]);
 
   if (!isProduct) {
