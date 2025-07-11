@@ -3,7 +3,8 @@ import { CartContext } from "../context/CartContext";
 import Checkout from "./Checkout";
 
 function CartContainer() {
-  const { isCart, clearCart } = useContext(CartContext);
+  const { isCart, clearCart, increaseItem, decreaseItem, removeItem } =
+    useContext(CartContext);
   const [viewModal, setViewModal] = useState(false);
 
   if (isCart.length === 0) {
@@ -32,13 +33,22 @@ function CartContainer() {
               </div>
 
               <div className="flex items-center gap-2 mt-2">
-                <button className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400">
+                <button
+                  className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400"
+                  onClick={() => decreaseItem(item.id)}
+                >
                   -
                 </button>
-                <button className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400">
+                <button
+                  className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400"
+                  onClick={() => increaseItem(item.id)}
+                >
                   +
                 </button>
-                <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                <button
+                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                  onClick={() => removeItem(item.id)}
+                >
                   Eliminar
                 </button>
               </div>

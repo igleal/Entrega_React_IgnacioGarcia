@@ -26,11 +26,33 @@ function CartProvider({ children }) {
 
   const countCart = isCart.reduce((acc, item) => acc + item.cantidad, 0);
 
+  const increaseItem = (id) => {
+    setCart(
+      isCart.map((item) =>
+        item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+      )
+    );
+  };
+
+  const decreaseItem = (id) => {
+    setCart(
+      isCart.map((item) =>
+        item.id === id
+          ? { ...item, cantidad: item.cantidad > 1 ? item.cantidad - 1 : 1 }
+          : item
+      )
+    );
+  };
+
+  const removeItem = (id) => {
+    setCart(isCart.filter((item) => item.id !== id));
+  };
+
   const clearCart = () => {
-  setCart([]);
-};
+    setCart([]);
+  };
   return (
-    <CartContext.Provider value={{ addCart, isCart, countCart, clearCart }}>
+    <CartContext.Provider value={{ addCart, isCart, countCart, clearCart, increaseItem, decreaseItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );
