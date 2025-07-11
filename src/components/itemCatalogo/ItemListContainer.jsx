@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { getProduct } from "../../firabase/db";
 import ItemList from "./ItemList";
 
 function ItemListContainer() {
@@ -7,15 +8,25 @@ function ItemListContainer() {
   const { productCategory } = useParams();
 
   useEffect(() => {
-    if (productCategory) {
-      fetch(`https://fakestoreapi.com/products/category/${productCategory}`)
-        .then((response) => response.json())
-        .then((response) => setData(response));
-    } else {
-      fetch("https://fakestoreapi.com/products")
-        .then((response) => response.json())
-        .then((response) => setData(response));
-    }
+    const fetchData = async () => {
+      const mensajeError = "<span>Falla de la conexion al Servidor..</span>";
+      try {
+        const productData = await getProduct();
+
+        if (productCategory) {
+          const category = productData.filter(
+            (item) => item.category === productCategory
+          );
+          setData(category);
+        } else {
+          setData(productData);
+        }
+      } catch (error) {
+        return mensajeError;
+      }
+    };
+
+    fetchData();
   }, [productCategory]);
 
   return <ItemList data={isData} />;

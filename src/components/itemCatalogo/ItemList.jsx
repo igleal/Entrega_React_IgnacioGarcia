@@ -14,7 +14,7 @@ function ItemList({ data }) {
           <img
             src={producto.image}
             alt={producto.title}
-            className="w-48 object-cover rounded-t-lg mb-4 mx-auto"
+            className="w-48 object-cover rounded-t-lg mb-4 mx-auto mix-blend-darken"
           />
           <span>Titulo: {producto.title}</span>
           <span>Categoria: {producto.category}</span>

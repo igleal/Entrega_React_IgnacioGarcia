@@ -4,11 +4,11 @@ function ItemDetail({ item }) {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <article className="w-lg my-4 md:w-[1024px] md:min-h-[512px] flex flex-col md:flex-row bg-amber-200 rounded-xl">
-        <div className="m-4 md:w-1/2 flex justify-center items-center">
+        <div className="m-4 md:w-1/2 flex justify-center items-center ">
           <img
             src={item.image}
             alt={item.title}
-            className="rounded-2xl w-[300px] max-h-[400px] object-fill"
+            className="rounded-2xl w-[300px] max-h-[400px] object-fill mix-blend-darken"
           />
         </div>
 
@@ -24,13 +24,7 @@ function ItemDetail({ item }) {
           </span>
           <span className="mt-8">{item.description}</span>
 
-          <ItemCount />
-          <button className=" rounded-lg bg-blue-400 hover:bg-blue-800 text-white px-4 py-2 font-semibold">
-            Comprar Ahora
-          </button>
-          <button className="mt-2 rounded-lg bg-blue-400 hover:bg-blue-800 text-white px-4 py-2 font-semibold">
-            Añadir al Carrito
-          </button>
+          <ItemCount item={item} />
         </div>
       </article>
     </div>
