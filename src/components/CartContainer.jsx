@@ -29,7 +29,6 @@ function CartContainer() {
               <div className="flex flex-col justify-between gap-2">
                 <span>{item.title}</span>
                 <span>Precio Individual: ${item.price}</span>
-                <span>Subtotal: </span>
               </div>
 
               <div className="flex items-center gap-2 mt-2">
@@ -39,6 +38,7 @@ function CartContainer() {
                 >
                   -
                 </button>
+                <span>{item.cantidad}</span>
                 <button
                   className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400"
                   onClick={() => increaseItem(item.id)}
@@ -55,7 +55,6 @@ function CartContainer() {
             </article>
           ))}
           <div className="w-full max-w-lg text-right mt-4">
-            <p className="text-lg font-semibold mb-4">Total: 1000$</p>
             <button
               className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
               onClick={() => setViewModal(true)}
