@@ -1,12 +1,40 @@
-# React + Vite
+# E-Commerce Entrega Final React - CoderHouse.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto realizado con react, tailwind, firebase, como entrega final del curso de React en CoderHouse, el proyecto es una e-commerce que permite ver un listado de productos, filtrar por categoría, ver detalles de cada producto, agregar x producto a un carrito, y finalizando compra de los productos en el carrito.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnología Utilizadas.
 
-## Expanding the ESLint configuration
+React JS
+Firebase 
+Tailwind 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Estructura del proyecto.
+
+├── public/
+├── src/
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── vite.config.js
+
+## Funcionalidades del e-commerce.
+
+Listado de los productos de la BDD.
+Filtrare por categoría de los productos.
+Detalles de cada producto.
+Agregar al carrito.
+Visualización de los productos agregados al carrito.
+Formulario de finalizar comprar en el carrito con validación.
+
+
+## Como ejecutar el proyecto.
+
+1. Clonar el repositorio
+2. Entrar al proyecto
+3. Instalar las dependencias
+4. Ejecutar el proyecto
